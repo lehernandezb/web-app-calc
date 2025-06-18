@@ -142,6 +142,28 @@ function click() {
         update("+");
         console.log(tokens);
         break;
+    case "−":
+        tokens.push(equation.getValue());
+        tokens.push("−");
+        equation.deleteAll();
+        update("−");
+        console.log(tokens);
+        break;
+    case "×":
+        tokens.push(equation.getValue());
+        tokens.push("×");
+        equation.deleteAll();
+        update("×");
+        console.log(tokens);
+        break;
+    case "÷":
+        tokens.push(equation.getValue());
+        tokens.push("÷");
+        equation.deleteAll();
+        update("÷");
+        console.log(tokens);
+        break;
+
     default:
       console.log("invalid");
     }
