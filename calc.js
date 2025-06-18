@@ -62,44 +62,63 @@ const buttons = document.querySelectorAll(".button-pushable")
 const equation = new LinkedList;
 
 
+function update(value) {
+    let curr = document.getElementById("display").innerText;
+    
+    if (curr === ".") {
+        document.getElementById("display").innerText = value;
+    } else {
+       document.getElementById("display").innerText += value; 
+    }
+}
+
 function click() {
     let value = event.target.innerText;
     switch (value){
         case "1":
         console.log("1");
+        update("1")
         equation.append(1)
         break;
     case "2":
         console.log("2");
         equation.append(2)
+        update("2")
         break;
     case "3":
         console.log("3");
         equation.append(3)
+        update("3");
         break;
     case "4":
         console.log("4");
         equation.append(4)
+        update("4");
         break;
     case "5":
         console.log("5");
         equation.append(5)
+        update("5");
         break;
     case "6":
         console.log("6");
         equation.append(6)
+        update("6");
         break;
     case "7":
         console.log("7");
         equation.append(7)
+        update("7");
         break;
     case "8":
         console.log("8");
         equation.append(8)
+        update("8");
         break;
     case "9":
         console.log("9");
         equation.append(9)
+        update("9");
         break;
 
     case "=":
