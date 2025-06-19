@@ -99,8 +99,7 @@ let tokens = [];
 
 
 function update(value) {
-    let curr = document.getElementById("display").innerText;
-    
+    const curr = document.getElementById("display").innerText;
     if (curr === ".") {
         document.getElementById("display").innerText = value;
     } else {
@@ -109,9 +108,44 @@ function update(value) {
 }
 
 function clear() {
-    let curr = document.getElementById("display").innerText;
+    const curr = document.getElementById("display").innerText;
     if (curr !== ".") {
         document.getElementById("display").innerText = ".";
+    }
+}
+
+function deleteLast(){
+    const curr = document.getElementById("display").innerText;
+    const length = curr.length;
+    let value = "";
+    if (length > 1) {
+        for (let i = 0; i < length - 1; i++) {
+            value += curr.charAt(i);
+        }
+        document.getElementById("display").innerText = value;
+    } else {
+        document.getElementById("display").innerText = ".";
+    }
+}
+
+function testLast(equation) {
+    if (equation.head === null && tokens.length > 0){
+        let length = tokens.length;
+        if (tokens[length - 1] !== "÷" && tokens[length - 1] !== "×" && tokens[length - 1] !== "−" && tokens[length - 1] !== "+" ) {
+            for (let i = 0; i < tokens[length - 1].length; i++) {
+                equation.append(tokens[length - 1].charAt(i));
+            }
+        } 
+        tokens.pop();
+    }
+    if (
+        equation.head &&
+        (equation.head.value === "÷" ||
+         equation.head.value === "×" ||
+         equation.head.value === "−" ||
+         equation.head.value === "+")
+    ) {
+        equation.deleteAll();
     }
 }
 
@@ -200,7 +234,9 @@ function click() {
         break;
     case "←":
         equation.pop();
-
+        deleteLast();
+        testLast(equation);
+        break;
     default:
       console.log("invalid");
     }
