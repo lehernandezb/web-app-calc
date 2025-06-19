@@ -97,10 +97,15 @@ const buttons = document.querySelectorAll(".button-pushable")
 const equation = new LinkedList;
 let tokens = [];
 
+//calculations
+
+
+
+//display
 
 function update(value) {
-    const curr = document.getElementById("display").innerText;
-    if (curr === ".") {
+    const currentDisplay = document.getElementById("display").innerText;
+    if (currentDisplay === ".") {
         document.getElementById("display").innerText = value;
     } else {
        document.getElementById("display").innerText += value; 
@@ -108,19 +113,19 @@ function update(value) {
 }
 
 function clear() {
-    const curr = document.getElementById("display").innerText;
-    if (curr !== ".") {
+    const currentDisplay = document.getElementById("display").innerText;
+    if (currentDisplay !== ".") {
         document.getElementById("display").innerText = ".";
     }
 }
 
 function deleteLast(){
-    const curr = document.getElementById("display").innerText;
-    const length = curr.length;
+    const currentDisplay = document.getElementById("display").innerText;
+    const length = currentDisplay.length;
     let value = "";
     if (length > 1) {
         for (let i = 0; i < length - 1; i++) {
-            value += curr.charAt(i);
+            value += currentDisplay.charAt(i);
         }
         document.getElementById("display").innerText = value;
     } else {
@@ -198,6 +203,7 @@ function click() {
         break;
     case "=":
         equation.print();
+        calculation();
         break;
     case "+":
         if (equation.getValue() != '') {
