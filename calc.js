@@ -48,6 +48,25 @@ class LinkedList {
         }
     }
 
+    pop() {
+        if (!this.head) return null; // empty list
+
+        // If only one node
+        if (!this.head.next) {
+            const value = this.head.value;
+            this.head = null;
+            return value;
+        }
+
+        let current = this.head;
+        while (current.next && current.next.next) {
+            current = current.next;
+        }
+        const value = current.next.value;
+        current.next = null;
+        return value;
+    }
+
     deleteAll() {
         this.head = null;
         this.next = null;
@@ -89,6 +108,13 @@ function update(value) {
     }
 }
 
+function clear() {
+    let curr = document.getElementById("display").innerText;
+    if (curr !== ".") {
+        document.getElementById("display").innerText = ".";
+    }
+}
+
 function click() {
     let value = event.target.innerText;
     switch (value){
@@ -105,7 +131,6 @@ function click() {
         update("3");
         break;
     case "4":
-
         equation.append("4")
         update("4");
         break;
@@ -114,7 +139,6 @@ function click() {
         update("5");
         break;
     case "6":
-        console.log("6");
         equation.append("6")
         update("6");
         break;
@@ -130,11 +154,17 @@ function click() {
         equation.append("9")
         update("9");
         break;
-
+    case "0":
+        equation.append("0")
+        update("0");
+        break;
+    case ".":
+        equation.append(".")
+        update(".");
+        break;
     case "=":
         equation.print();
         break;
-
     case "+":
         tokens.push(equation.getValue());
         tokens.push("+");
@@ -163,6 +193,13 @@ function click() {
         update("÷");
         console.log(tokens);
         break;
+    case "AC":
+        equation.deleteAll();
+        clear();
+        tokens = [];
+        break;
+    case "←":
+        equation.pop();
 
     default:
       console.log("invalid");
