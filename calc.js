@@ -99,23 +99,32 @@ let tokens = [];
 
 //calculations
 function calculation() {
-    // Edge case
+    // Edge cases
 
-    // Starting with and operator
+    // Starting with and operator or ends with operator
     const signs = ["+", "−", "×", "÷"]
-    if (signs.includes(tokens[0])){
+    const length = tokens.length;
+    if (signs.includes(tokens[0]) || signs.includes(tokens[length - 1])){
         document.getElementById("display").innerText = "SyntaxError";
         tokens = [];
         equation.deleteAll();
     }
 
     // Multiple operators next to each other
-    const length = tokens.length;
     for (let i = 0; i < length - 1; i++){
         if (signs.includes(tokens[i]) && (signs.includes(tokens[i+1]))){
             document.getElementById("display").innerText = "SyntaxError";
             tokens = [];
             equation.deleteAll();
+        }
+    }
+
+    // BEDMAS calculations
+    // Multiplication and Divison
+    const multOrDiv = ["×", "÷"]
+    for (let i = 0; i < length - 1; i++){
+        if (multOrDiv.includes(tokens[i])){
+           
         }
     }
     
