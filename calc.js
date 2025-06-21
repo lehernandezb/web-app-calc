@@ -98,6 +98,15 @@ const equation = new LinkedList;
 let tokens = [];
 
 //calculations
+function calculation() {
+    // Edge case
+    const signs = ["+", "−", "×", "÷"]
+    if (signs.includes(tokens[0])){
+        document.getElementById("display").innerText = "SyntaxError";
+        tokens = [];
+        equation.deleteAll;
+    }
+}
 
 
 
@@ -154,52 +163,49 @@ function testLast(equation) {
     }
 }
 
+function cases(value) {
+    if (document.getElementById("display").innerText === "SyntaxError") {
+        document.getElementById("display").innerText = "."
+    }
+    equation.append(value)
+    update(value);
+}
+
 function click() {
     let value = event.target.innerText;
     switch (value){
-        case "1":
-        update("1")
-        equation.append("1")
+    case "1":
+        cases("1")
         break;
     case "2":
-        equation.append("2")
-        update("2")
+        cases("2")
         break;
     case "3":
-        equation.append("3")
-        update("3");
+        cases("3")
         break;
     case "4":
-        equation.append("4")
-        update("4");
+        cases("4")
         break;
     case "5":
-        equation.append("5")
-        update("5");
+        cases("5")
         break;
     case "6":
-        equation.append("6")
-        update("6");
+        cases("6")
         break;
     case "7":
-        equation.append("7")
-        update("7");
+        cases("7")
         break;
     case "8":
-        equation.append("8")
-        update("8");
+        cases("8")
         break;
     case "9":
-        equation.append("9")
-        update("9");
+        cases("9")
         break;
     case "0":
-        equation.append("0")
-        update("0");
+        cases("0")
         break;
     case ".":
-        equation.append(".")
-        update(".");
+        cases(".")
         break;
     case "=":
         equation.print();
