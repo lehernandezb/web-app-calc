@@ -100,12 +100,25 @@ let tokens = [];
 //calculations
 function calculation() {
     // Edge case
+
+    // Starting with and operator
     const signs = ["+", "−", "×", "÷"]
     if (signs.includes(tokens[0])){
         document.getElementById("display").innerText = "SyntaxError";
         tokens = [];
-        equation.deleteAll;
+        equation.deleteAll();
     }
+
+    // Multiple operators next to each other
+    const length = tokens.length;
+    for (let i = 0; i < length - 1; i++){
+        if (signs.includes(tokens[i]) && (signs.includes(tokens[i+1]))){
+            document.getElementById("display").innerText = "SyntaxError";
+            tokens = [];
+            equation.deleteAll();
+        }
+    }
+    
 }
 
 
