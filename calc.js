@@ -102,20 +102,22 @@ function calculation() {
     // Edge cases
 
     // Starting with and operator or ends with operator
-    const signs = ["+", "−", "×", "÷"]
+    const operators = ["+", "−", "×", "÷"]
     const length = tokens.length;
-    if (signs.includes(tokens[0]) || signs.includes(tokens[length - 1])){
+    if (operators.includes(tokens[0]) || operators.includes(tokens[length - 1])){
         document.getElementById("display").innerText = "SyntaxError";
         tokens = [];
         equation.deleteAll();
+        return;
     }
 
     // Multiple operators next to each other
     for (let i = 0; i < length - 1; i++){
-        if (signs.includes(tokens[i]) && (signs.includes(tokens[i+1]))){
+        if (operators.includes(tokens[i]) && (operators.includes(tokens[i+1]))){
             document.getElementById("display").innerText = "SyntaxError";
             tokens = [];
             equation.deleteAll();
+            return;
         }
     }
 
@@ -230,6 +232,10 @@ function click() {
         cases(".")
         break;
     case "=":
+        if (equation.getValue() != '') {
+            tokens.push(equation.getValue());
+        }
+        console.log(tokens);
         equation.print();
         calculation();
         break;
@@ -243,7 +249,7 @@ function click() {
         console.log(tokens);
         break;
     case "−":
-         if (equation.getValue() != '') {
+        if (equation.getValue() != '') {
             tokens.push(equation.getValue());
         }
         tokens.push("−");
@@ -252,7 +258,7 @@ function click() {
         console.log(tokens);
         break;
     case "×":
-         if (equation.getValue() != '') {
+        if (equation.getValue() != '') {
             tokens.push(equation.getValue());
         }
         tokens.push("×");
@@ -261,7 +267,7 @@ function click() {
         console.log(tokens);
         break;
     case "÷":
-         if (equation.getValue() != '') {
+        if (equation.getValue() != '') {
             tokens.push(equation.getValue());
         }
         tokens.push("÷");
