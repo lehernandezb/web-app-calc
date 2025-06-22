@@ -103,7 +103,7 @@ function calculation() {
 
     // Starting with and operator or ends with operator
     const operators = ["+", "−", "×", "÷"]
-    const length = tokens.length;
+    let length = tokens.length;
     if (operators.includes(tokens[0]) || operators.includes(tokens[length - 1])){
         document.getElementById("display").innerText = "SyntaxError";
         tokens = [];
@@ -124,12 +124,40 @@ function calculation() {
     // BEDMAS calculations
     // Multiplication and Divison
     const multOrDiv = ["×", "÷"]
-    for (let i = 0; i < length - 1; i++){
+    for (let i = length - 1; i > 0; i--){
         if (multOrDiv.includes(tokens[i])){
-           
+           let left = tokens[i - 1];
+           let right = tokens[i + 1];
+           if (tokens[i] === multOrDiv[0]){
+                tokens[i] = Number(left) * Number(right);
+           } else {
+                tokens[i] = Number(left) / Number(right);
+           }
+           tokens.splice(i + 1, 1); // Remove right operand
+           tokens.splice(i - 1, 1); // Remove left operand
+           length = tokens.length;
         }
     }
-    
+
+    // Addition and Subtraction
+    const addOrMinus = ["+", "−"]
+    for (let i = length - 1; i > 0; i--){
+        if (addOrMinus.includes(tokens[i])){
+           let left = tokens[i - 1];
+           let right = tokens[i + 1];
+           if (tokens[i] === addOrMinus[0]){
+                tokens[i] = Number(left) + Number(right);
+           } else {
+                tokens[i] = Number(left) - Number(right);
+           }
+           tokens.splice(i + 1, 1); // Remove right operand
+           tokens.splice(i - 1, 1); // Remove left operand
+           length = tokens.length;
+        }
+    }
+
+    document.getElementById("display").innerText = tokens[0];
+    equation.deleteAll();
 }
 
 
@@ -238,6 +266,8 @@ function click() {
         console.log(tokens);
         equation.print();
         calculation();
+        console.log(tokens);
+        equation.print();
         break;
     case "+":
         if (equation.getValue() != '') {
