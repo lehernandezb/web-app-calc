@@ -167,10 +167,10 @@ function calculation() {
 }
 
 
-
-//display
-
-
+/**
+ * updates the display with the the buttons being pressed
+ * @param {NewType} value 
+ */
 function update(value) {
     const currentDisplay = document.getElementById("display").innerText;
     if (currentDisplay === ".") {
@@ -180,6 +180,9 @@ function update(value) {
     }
 }
 
+/**
+ * clears display
+ */
 function clear() {
     const currentDisplay = document.getElementById("display").innerText;
     if (currentDisplay !== ".") {
@@ -187,6 +190,9 @@ function clear() {
     }
 }
 
+/**
+ * deletes the last thing displayed
+ */
 function deleteLast(){
     const currentDisplay = document.getElementById("display").innerText;
     const length = currentDisplay.length;
