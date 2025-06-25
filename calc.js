@@ -98,6 +98,12 @@ const equation = new LinkedList;
 let tokens = [];
 
 //calculations
+
+/**
+ * Does the actual calcualtions, first it handles edge cases, the moves on to multiplcation and divison,
+ * thne handles addition and substraction.
+ * @returns calculations to display ID
+ */
 function calculation() {
     // Edge cases
 
@@ -163,6 +169,7 @@ function calculation() {
 
 
 //display
+
 
 function update(value) {
     const currentDisplay = document.getElementById("display").innerText;
