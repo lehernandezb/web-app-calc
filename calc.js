@@ -14,6 +14,7 @@ class LinkedList {
         this.head = null
     }
 
+    // addes new value to the list
     append(value) {
         const newlistNode = new listNode(value);
         if (!this.head) {
@@ -27,6 +28,7 @@ class LinkedList {
         current.next = newlistNode;
     }
 
+    // deletes a given value
     delete(value) {
         if (!this.head) return; // empty list
 
@@ -48,6 +50,7 @@ class LinkedList {
         }
     }
 
+    // deletes last value
     pop() {
         if (!this.head) return null; // empty list
 
@@ -67,11 +70,13 @@ class LinkedList {
         return value;
     }
 
+    // deletes alll values
     deleteAll() {
         this.head = null;
         this.next = null;
     }
 
+    // gets specific values
     getValue(){
         let current = this.head;
         let result = "";
@@ -82,6 +87,7 @@ class LinkedList {
         return result;
     }
 
+    // prints the linked list
     print() {
         let current = this.head;
         let result = "";
@@ -93,6 +99,7 @@ class LinkedList {
     }
 }
 
+// constents used through out code
 const buttons = document.querySelectorAll(".button-pushable")
 const equation = new LinkedList;
 let tokens = [];
@@ -228,6 +235,10 @@ function testLast(equation) {
     }
 }
 
+/**
+ * Used to aviod repeat code
+ * @param {number} value 
+ */
 function cases(value) {
     if (document.getElementById("display").innerText === "SyntaxError") {
         document.getElementById("display").innerText = "."
@@ -333,6 +344,9 @@ function click() {
     }
 }
 
+/**
+ * checks if a button has been pressed
+ */
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click",click )
 }
