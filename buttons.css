@@ -119,8 +119,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 100px 0 15px 0;
+  margin-bottom: 15px;
   height: 200px;
+  width: 500px;
   background: hsl(345deg 100% 47%);
   border-radius: 10px;
 }
@@ -130,4 +131,49 @@
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 550;
   font-size: 40px;
+}
+
+.body {
+  padding: 20px 20px 20px 20px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  border-radius: 30px;
+  background-color: white;
+  margin: 100px 200px 15px 200px;
+}
+
+@media (max-width: 765px) {
+  .screen {
+    width: 355px;
+  }
+  
+  .body {
+    width: 365px;
+  }
+}
+
+@media (max-width: 766px) and (min-width: 1010px) {
+  .screen {
+    width: 550px;
+  }
+}
+@media (max-width: 766px) and (min-width: 1010px) {
+  .body {
+    width: 510px;
+    height: 540px;
+  }
+}
+
+@media (min-width: 1020px) {
+  .screen {
+    width: 600px;
+  }
+}
+
+
+.background {
+  background-color: rgb(207, 206, 206);
 }

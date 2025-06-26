@@ -3,195 +3,197 @@
   <head>
     <link rel="stylesheet" href="buttons.css">
   </head>
-  <body>
-    <div class="screen">
-      <p class="display" id="display">.</p>
+  <body class="background">
+    <div class = "body">
+      <div class="screen">
+        <p class="display" id="display">.</p>
+      </div>
+      <!-- Calculator main interface -->
+      <main class="calc-face">
+        <!-- Calculator display and buttons -->
+        <div class="calc-display">
+        <!-- Calculator button grid -->
+        <div class="calc">
+        <!-- First row: AC, →, GT, MU, ÷, ON -->
+        <div class="button-containor">
+        <button id="btn-ac" class="button-pushable" role="button">
+          <span class="button-shadow"></span>
+          <span class="button-edge"></span>
+          <span class="button-front text">
+          AC
+          </span>
+        </button>
+        </div>
+        <div class="button-containor">
+        <button id="btn-arrow" class="button-pushable" role="button">
+          <span class="button-shadow"></span>
+          <span class="button-edge"></span>
+          <span class="button-front text">
+          &#8592;
+          </span>
+        </button>
+        </div>
+        <div class="button-containor">
+        <button id="btn-on" class="button-pushable" role="button">
+          <span class="button-shadow"></span>
+          <span class="button-edge"></span>
+          <span class="button-front text">
+          ON
+          </span>
+        </button>
+        </div>
+        <div class="button-containor">
+        <button id="btn-divide" class="button-pushable" role="button">
+          <span class="button-shadow"></span>
+          <span class="button-edge"></span>
+          <span class="button-front text">
+          &#247;
+          </span>
+        </button>
+        </div>
+        <!-- Second row: 7, 8, 9, ×, √ -->
+        <div class="button-containor">
+        <button id="btn-7" class="button-pushable" role="button">
+          <span class="button-shadow"></span>
+          <span class="button-edge"></span>
+          <span class="button-front text">
+          7
+          </span>
+        </button>
+        </div>
+        <div class="button-containor">
+        <button id="btn-8" class="button-pushable" role="button">
+          <span class="button-shadow"></span>
+          <span class="button-edge"></span>
+          <span class="button-front text">
+          8
+          </span>
+        </button>
+        </div>
+        <div class="button-containor">
+        <button id="btn-9" class="button-pushable" role="button">
+          <span class="button-shadow"></span>
+          <span class="button-edge"></span>
+          <span class="button-front text">
+          9
+          </span>
+        </button>
+        </div>
+        <div class="button-containor">
+        <button id="btn-multiply" class="button-pushable" role="button">
+          <span class="button-shadow"></span>
+          <span class="button-edge"></span>
+          <span class="button-front text">
+          &#215;
+          </span>
+        </button>
+        </div>
+        <!-- Third row: 4, 5, 6, −, % -->
+        <div class="button-containor">
+        <button id="btn-4" class="button-pushable" role="button">
+          <span class="button-shadow"></span>
+          <span class="button-edge"></span>
+          <span class="button-front text">
+          4
+          </span>
+        </button>
+        </div>
+        <div class="button-containor">
+        <button id="btn-5" class="button-pushable" role="button">
+          <span class="button-shadow"></span>
+          <span class="button-edge"></span>
+          <span class="button-front text">
+          5
+          </span>
+        </button>
+        </div>
+        <div class="button-containor">
+        <button id="btn-6" class="button-pushable" role="button">
+          <span class="button-shadow"></span>
+          <span class="button-edge"></span>
+          <span class="button-front text">
+          6
+          </span>
+        </button>
+        </div>
+        <div class="button-containor">
+        <button id="btn-minus" class="button-pushable" role="button">
+          <span class="button-shadow"></span>
+          <span class="button-edge"></span>
+          <span class="button-front text">
+          &#8722;
+          </span>
+        </button>
+        </div>
+        <!-- Fourth row: 1, 2, 3, + -->
+        <div class="button-containor">
+        <button id="btn-1" class="button-pushable" role="button">
+          <span class="button-shadow"></span>
+          <span class="button-edge"></span>
+          <span class="button-front text">
+          1
+          </span>
+        </button>
+        </div>
+        <div class="button-containor">
+        <button id="btn-2" class="button-pushable" role="button">
+          <span class="button-shadow"></span>
+          <span class="button-edge"></span>
+          <span class="button-front text">
+          2
+          </span>
+        </button>
+        </div>
+        <div class="button-containor">
+        <button id="btn-3" class="button-pushable" role="button">
+          <span class="button-shadow"></span>
+          <span class="button-edge"></span>
+          <span class="button-front text">
+          3
+          </span>
+        </button>
+        </div>
+        <div class="button-containor">
+        <button id="btn-plus" class="button-pushable" role="button">
+          <span class="button-shadow"></span>
+          <span class="button-edge"></span>
+          <span class="button-front text">
+          &#43;
+          </span>
+        </button>
+        </div>
+        <!-- Fifth row: 0, ., = -->
+        <div class="button-containor">
+        <button id="btn-0" class="button-pushable" role="button">
+          <span class="button-shadow"></span>
+          <span class="button-edge"></span>
+          <span class="button-front text">
+          0
+          </span>
+        </button>
+        </div>
+        <div class="button-containor">
+        <button id="btn-dot" class="button-pushable" role="button">
+          <span class="button-shadow"></span>
+          <span class="button-edge"></span>
+          <span class="button-front text">
+          .
+          </span>
+        </button>
+        </div>
+        <div class="button-containor">
+        <button id="btn-equals" class="button-pushable" role="button">
+          <span class="button-shadow"></span>
+          <span class="button-edge"></span>
+          <span class="button-front text">
+          &#61;
+          </span>
+        </button>
+        </div>
+        </div>
+        </div>
+      </main>
+      <script src="calc.js"></script>
     </div>
-    <!-- Calculator main interface -->
-    <main class="calc-face">
-      <!-- Calculator display and buttons -->
-      <div class="calc-display">
-      <!-- Calculator button grid -->
-      <div class="calc">
-      <!-- First row: AC, →, GT, MU, ÷, ON -->
-      <div class="button-containor">
-      <button id="btn-ac" class="button-pushable" role="button">
-        <span class="button-shadow"></span>
-        <span class="button-edge"></span>
-        <span class="button-front text">
-        AC
-        </span>
-      </button>
-      </div>
-      <div class="button-containor">
-      <button id="btn-arrow" class="button-pushable" role="button">
-        <span class="button-shadow"></span>
-        <span class="button-edge"></span>
-        <span class="button-front text">
-        &#8592;
-        </span>
-      </button>
-      </div>
-      <div class="button-containor">
-      <button id="btn-on" class="button-pushable" role="button">
-        <span class="button-shadow"></span>
-        <span class="button-edge"></span>
-        <span class="button-front text">
-        ON
-        </span>
-      </button>
-      </div>
-      <div class="button-containor">
-      <button id="btn-divide" class="button-pushable" role="button">
-        <span class="button-shadow"></span>
-        <span class="button-edge"></span>
-        <span class="button-front text">
-        &#247;
-        </span>
-      </button>
-      </div>
-      <!-- Second row: 7, 8, 9, ×, √ -->
-      <div class="button-containor">
-      <button id="btn-7" class="button-pushable" role="button">
-        <span class="button-shadow"></span>
-        <span class="button-edge"></span>
-        <span class="button-front text">
-        7
-        </span>
-      </button>
-      </div>
-      <div class="button-containor">
-      <button id="btn-8" class="button-pushable" role="button">
-        <span class="button-shadow"></span>
-        <span class="button-edge"></span>
-        <span class="button-front text">
-        8
-        </span>
-      </button>
-      </div>
-      <div class="button-containor">
-      <button id="btn-9" class="button-pushable" role="button">
-        <span class="button-shadow"></span>
-        <span class="button-edge"></span>
-        <span class="button-front text">
-        9
-        </span>
-      </button>
-      </div>
-      <div class="button-containor">
-      <button id="btn-multiply" class="button-pushable" role="button">
-        <span class="button-shadow"></span>
-        <span class="button-edge"></span>
-        <span class="button-front text">
-        &#215;
-        </span>
-      </button>
-      </div>
-      <!-- Third row: 4, 5, 6, −, % -->
-      <div class="button-containor">
-      <button id="btn-4" class="button-pushable" role="button">
-        <span class="button-shadow"></span>
-        <span class="button-edge"></span>
-        <span class="button-front text">
-        4
-        </span>
-      </button>
-      </div>
-      <div class="button-containor">
-      <button id="btn-5" class="button-pushable" role="button">
-        <span class="button-shadow"></span>
-        <span class="button-edge"></span>
-        <span class="button-front text">
-        5
-        </span>
-      </button>
-      </div>
-      <div class="button-containor">
-      <button id="btn-6" class="button-pushable" role="button">
-        <span class="button-shadow"></span>
-        <span class="button-edge"></span>
-        <span class="button-front text">
-        6
-        </span>
-      </button>
-      </div>
-      <div class="button-containor">
-      <button id="btn-minus" class="button-pushable" role="button">
-        <span class="button-shadow"></span>
-        <span class="button-edge"></span>
-        <span class="button-front text">
-        &#8722;
-        </span>
-      </button>
-      </div>
-      <!-- Fourth row: 1, 2, 3, + -->
-      <div class="button-containor">
-      <button id="btn-1" class="button-pushable" role="button">
-        <span class="button-shadow"></span>
-        <span class="button-edge"></span>
-        <span class="button-front text">
-        1
-        </span>
-      </button>
-      </div>
-      <div class="button-containor">
-      <button id="btn-2" class="button-pushable" role="button">
-        <span class="button-shadow"></span>
-        <span class="button-edge"></span>
-        <span class="button-front text">
-        2
-        </span>
-      </button>
-      </div>
-      <div class="button-containor">
-      <button id="btn-3" class="button-pushable" role="button">
-        <span class="button-shadow"></span>
-        <span class="button-edge"></span>
-        <span class="button-front text">
-        3
-        </span>
-      </button>
-      </div>
-      <div class="button-containor">
-      <button id="btn-plus" class="button-pushable" role="button">
-        <span class="button-shadow"></span>
-        <span class="button-edge"></span>
-        <span class="button-front text">
-        &#43;
-        </span>
-      </button>
-      </div>
-      <!-- Fifth row: 0, ., = -->
-      <div class="button-containor">
-      <button id="btn-0" class="button-pushable" role="button">
-        <span class="button-shadow"></span>
-        <span class="button-edge"></span>
-        <span class="button-front text">
-        0
-        </span>
-      </button>
-      </div>
-      <div class="button-containor">
-      <button id="btn-dot" class="button-pushable" role="button">
-        <span class="button-shadow"></span>
-        <span class="button-edge"></span>
-        <span class="button-front text">
-        .
-        </span>
-      </button>
-      </div>
-      <div class="button-containor">
-      <button id="btn-equals" class="button-pushable" role="button">
-        <span class="button-shadow"></span>
-        <span class="button-edge"></span>
-        <span class="button-front text">
-        &#61;
-        </span>
-      </button>
-      </div>
-      </div>
-      </div>
-    </main>
-    <script src="calc.js"></script>
   </body>
 </html>
