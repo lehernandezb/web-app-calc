@@ -1,0 +1,26 @@
+.socials-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    place-content: center;
+    background-color: rgb(151, 151, 151);
+    border-radius: 15px;
+}
+
+.socials-text {
+    place-content: center;
+    margin-left: 0;
+    color: white;
+}
+
+.img {
+    place-content: center;
+    margin-right: 0;
+    filter: invert(100%);
+}
+
+@media (max-width: 765px) {
+    .socials-div {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        width: 400px; 
+    }
+}
