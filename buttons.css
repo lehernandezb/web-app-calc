@@ -142,7 +142,7 @@
   border-radius: 30px;
   width: fit-content;
   background-color: white;
-  margin: 100px 200px 15px 200px;
+  margin: 10px 0 15px 0;
 }
 
 @media (max-width: 765px) {
@@ -174,4 +174,23 @@
 
 .background {
   background-color: rgb(207, 206, 206);
+  display: grid;
+  place-content: center;
+}
+
+.header {
+  font-family: "Menbere", sans-serif;
+  font-size: 60px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.header-div {
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
