@@ -248,7 +248,7 @@ function testLast(equation) {
  * @param {number} value 
  */
 function cases(value) {
-    if (document.getElementById("display").innerText === "SyntaxError") {
+    if (document.getElementById("display").innerText === "SyntaxError" || document.getElementById("display").innerText === "NaN") {
         document.getElementById("display").innerText = "."
     }
     if (answerCheck === true ) {
@@ -260,6 +260,13 @@ function cases(value) {
 }
 
 function click() {
+
+    const currentDisplay = document.getElementById("display").innerText;
+    if (currentDisplay.length > 27) {
+        let trimLength = currentDisplay.length - 27;
+        document.getElementById("display").innerText = currentDisplay.slice(trimLength);
+    }
+
     let value = event.target.innerText;
     if (onOrOff === false){
         if (value === "ON") {
@@ -308,9 +315,11 @@ function click() {
             console.log(tokens);
             equation.print();
             calculation();
-            answer = tokens[0].trim();
+            if (tokens.length > 0  && !tokens.includes("NaN")) {
+                answer = tokens[0].trim();
+                answerCheck = true;
+            }
             tokens = [];
-            answerCheck = true;
             console.log(tokens);
             equation.print();
             break;
@@ -369,7 +378,13 @@ function click() {
         case "Ans":
             if (answer !== 0){
                 cases(answer);
+                let currentDisplay = document.getElementById("display").innerText;
+                if (currentDisplay.length > 27) {
+                    let trimLength = currentDisplay.length - 27;
+                    document.getElementById("display").innerText = currentDisplay.slice(trimLength);
+                }   
             }
+           break;
         default:
         console.log("invalid");
         }
