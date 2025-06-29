@@ -347,10 +347,9 @@ function click() {
             testLast(equation);
             break;
         case "ON":
-            onOrOff = false;
             document.getElementById("display").innerText = " ";
+            onOrOff = false;
             equation.deleteAll();
-            clear();
             tokens = [];
             break;
         default:
