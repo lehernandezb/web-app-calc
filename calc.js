@@ -103,6 +103,7 @@ class LinkedList {
 const buttons = document.querySelectorAll(".button-pushable")
 const equation = new LinkedList;
 let tokens = [];
+let onOrOff = false;
 
 //calculations
 
@@ -249,98 +250,112 @@ function cases(value) {
 
 function click() {
     let value = event.target.innerText;
-    switch (value){
-    case "1":
-        cases("1")
-        break;
-    case "2":
-        cases("2")
-        break;
-    case "3":
-        cases("3")
-        break;
-    case "4":
-        cases("4")
-        break;
-    case "5":
-        cases("5")
-        break;
-    case "6":
-        cases("6")
-        break;
-    case "7":
-        cases("7")
-        break;
-    case "8":
-        cases("8")
-        break;
-    case "9":
-        cases("9")
-        break;
-    case "0":
-        cases("0")
-        break;
-    case ".":
-        cases(".")
-        break;
-    case "=":
-        if (equation.getValue() != '') {
-            tokens.push(equation.getValue());
+    if (onOrOff === false){
+        if (value === "ON") {
+            onOrOff = true;
+            document.getElementById("display").innerText = ".";
         }
-        console.log(tokens);
-        equation.print();
-        calculation();
-        console.log(tokens);
-        equation.print();
-        break;
-    case "+":
-        if (equation.getValue() != '') {
-            tokens.push(equation.getValue());
+    } else {
+        switch (value){
+        case "1":
+            cases("1")
+            break;
+        case "2":
+            cases("2")
+            break;
+        case "3":
+            cases("3")
+            break;
+        case "4":
+            cases("4")
+            break;
+        case "5":
+            cases("5")
+            break;
+        case "6":
+            cases("6")
+            break;
+        case "7":
+            cases("7")
+            break;
+        case "8":
+            cases("8")
+            break;
+        case "9":
+            cases("9")
+            break;
+        case "0":
+            cases("0")
+            break;
+        case ".":
+            cases(".")
+            break;
+        case "=":
+            if (equation.getValue() != '') {
+                tokens.push(equation.getValue());
+            }
+            console.log(tokens);
+            equation.print();
+            calculation();
+            console.log(tokens);
+            equation.print();
+            break;
+        case "+":
+            if (equation.getValue() != '') {
+                tokens.push(equation.getValue());
+            }
+            tokens.push("+");
+            equation.deleteAll();
+            update("+");
+            console.log(tokens);
+            break;
+        case "−":
+            if (equation.getValue() != '') {
+                tokens.push(equation.getValue());
+            }
+            tokens.push("−");
+            equation.deleteAll();
+            update("−");
+            console.log(tokens);
+            break;
+        case "×":
+            if (equation.getValue() != '') {
+                tokens.push(equation.getValue());
+            }
+            tokens.push("×");
+            equation.deleteAll();
+            update("×");
+            console.log(tokens);
+            break;
+        case "÷":
+            if (equation.getValue() != '') {
+                tokens.push(equation.getValue());
+            }
+            tokens.push("÷");
+            equation.deleteAll();
+            update("÷");
+            console.log(tokens);
+            break;
+        case "AC":
+            equation.deleteAll();
+            clear();
+            tokens = [];
+            break;
+        case "←":
+            equation.pop();
+            deleteLast();
+            testLast(equation);
+            break;
+        case "ON":
+            onOrOff = false;
+            document.getElementById("display").innerText = " ";
+            equation.deleteAll();
+            clear();
+            tokens = [];
+            break;
+        default:
+        console.log("invalid");
         }
-        tokens.push("+");
-        equation.deleteAll();
-        update("+");
-        console.log(tokens);
-        break;
-    case "−":
-        if (equation.getValue() != '') {
-            tokens.push(equation.getValue());
-        }
-        tokens.push("−");
-        equation.deleteAll();
-        update("−");
-        console.log(tokens);
-        break;
-    case "×":
-        if (equation.getValue() != '') {
-            tokens.push(equation.getValue());
-        }
-        tokens.push("×");
-        equation.deleteAll();
-        update("×");
-        console.log(tokens);
-        break;
-    case "÷":
-        if (equation.getValue() != '') {
-            tokens.push(equation.getValue());
-        }
-        tokens.push("÷");
-        equation.deleteAll();
-        update("÷");
-        console.log(tokens);
-        break;
-    case "AC":
-        equation.deleteAll();
-        clear();
-        tokens = [];
-        break;
-    case "←":
-        equation.pop();
-        deleteLast();
-        testLast(equation);
-        break;
-    default:
-      console.log("invalid");
     }
 }
 
