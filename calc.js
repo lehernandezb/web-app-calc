@@ -104,6 +104,8 @@ const buttons = document.querySelectorAll(".button-pushable")
 const equation = new LinkedList;
 let tokens = [];
 let onOrOff = false;
+let answerCheck = false;
+let answer = 0;
 
 //calculations
 
@@ -118,11 +120,16 @@ function calculation() {
     // Starting with and operator or ends with operator
     const operators = ["+", "−", "×", "÷"]
     let length = tokens.length;
-    if (operators.includes(tokens[0]) || operators.includes(tokens[length - 1])){
-        document.getElementById("display").innerText = "SyntaxError";
-        tokens = [];
-        equation.deleteAll();
-        return;
+    if (tokens[0] ===  "−" && length >= 2) {
+        tokens[1] = "-" + tokens[1];
+        tokens.splice(0,1);
+    } else {
+        if (operators.includes(tokens[0]) || operators.includes(tokens[length - 1])){
+            document.getElementById("display").innerText = "SyntaxError";
+            tokens = [];
+            equation.deleteAll();
+            return;
+        }
     }
 
     // Multiple operators next to each other
@@ -169,7 +176,7 @@ function calculation() {
            length = tokens.length;
         }
     }
-
+    tokens[0] = tokens[0].toString();
     document.getElementById("display").innerText = tokens[0];
     equation.deleteAll();
 }
@@ -244,6 +251,10 @@ function cases(value) {
     if (document.getElementById("display").innerText === "SyntaxError") {
         document.getElementById("display").innerText = "."
     }
+    if (answerCheck === true ) {
+        document.getElementById("display").innerText = "."
+        answerCheck = false;
+    }
     equation.append(value)
     update(value);
 }
@@ -297,6 +308,9 @@ function click() {
             console.log(tokens);
             equation.print();
             calculation();
+            answer = tokens[0].trim();
+            tokens = [];
+            answerCheck = true;
             console.log(tokens);
             equation.print();
             break;
@@ -352,6 +366,10 @@ function click() {
             equation.deleteAll();
             tokens = [];
             break;
+        case "Ans":
+            if (answer !== 0){
+                cases(answer);
+            }
         default:
         console.log("invalid");
         }
