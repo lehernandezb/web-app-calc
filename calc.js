@@ -386,6 +386,9 @@ function click() {
             equation.pop();
             deleteLast();
             testLast(equation);
+            if (equation.head === null && tokens.length === 0) {
+                document.getElementById("display").innerText = ".";
+            }
             break;
         case "ON":
             document.getElementById("display").innerText = " ";
