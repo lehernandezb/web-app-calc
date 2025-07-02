@@ -222,6 +222,11 @@ function deleteLast(){
     }
 }
 
+/**
+ * Tests to see if the last element in the equation is an operator or not. This determines
+ * if we need to make a new token or continue to add to an exisiting one
+ * @param {} equation 
+ */
 function testLast(equation) {
     if (equation.head === null && tokens.length > 0){
         let length = tokens.length;
@@ -259,6 +264,9 @@ function cases(value) {
     update(value);
 }
 
+/**
+ * Function handels the the functioanlity of each button once they are clicked
+ */
 function click() {
 
     const currentDisplay = document.getElementById("display").innerText;
