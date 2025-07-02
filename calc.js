@@ -105,7 +105,7 @@ const equation = new LinkedList;
 let tokens = [];
 let onOrOff = false;
 let answerCheck = false;
-let answer = 0;
+let answer = "0";
 
 //calculations
 
@@ -327,6 +327,10 @@ function click() {
             if (equation.getValue() != '') {
                 tokens.push(equation.getValue());
             }
+            if (answerCheck && tokens.length === 0) {
+                tokens.push(answer);
+                answerCheck = false;
+            } 
             tokens.push("+");
             equation.deleteAll();
             update("+");
@@ -336,6 +340,10 @@ function click() {
             if (equation.getValue() != '') {
                 tokens.push(equation.getValue());
             }
+            if (answerCheck && tokens.length === 0) {
+                tokens.push(answer);
+                answerCheck = false;
+            } 
             tokens.push("−");
             equation.deleteAll();
             update("−");
@@ -345,6 +353,10 @@ function click() {
             if (equation.getValue() != '') {
                 tokens.push(equation.getValue());
             }
+            if (answerCheck && tokens.length === 0) {
+                tokens.push(answer);
+                answerCheck = false;
+            } 
             tokens.push("×");
             equation.deleteAll();
             update("×");
@@ -354,6 +366,10 @@ function click() {
             if (equation.getValue() != '') {
                 tokens.push(equation.getValue());
             }
+            if (answerCheck && tokens.length === 0) {
+                tokens.push(answer);
+                answerCheck = false;
+            } 
             tokens.push("÷");
             equation.deleteAll();
             update("÷");
@@ -363,6 +379,8 @@ function click() {
             equation.deleteAll();
             clear();
             tokens = [];
+            answerCheck = false;
+            answer = "0";
             break;
         case "←":
             equation.pop();
