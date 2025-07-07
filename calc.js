@@ -269,12 +269,14 @@ function cases(value) {
  */
 function click() {
 
+    // Makes sure the max text on screen is 27 char
     const currentDisplay = document.getElementById("display").innerText;
     if (currentDisplay.length > 27) {
         let trimLength = currentDisplay.length - 27;
         document.getElementById("display").innerText = currentDisplay.slice(trimLength);
     }
 
+    // Sees if the calculator is turned on, if so it goes through each button and what it should do
     let value = event.target.innerText;
     if (onOrOff === false){
         if (value === "ON") {
